@@ -3,18 +3,18 @@ import './App.css';
 import Sidebar from './Components/Sidebar';
 import RoutesPage from './Routes';
 import axiosInstance from './Utilities/axios';
-import {
-  OPEN_WEATHER_API_KEY,
-  OPEN_WEATHER_API_URL,
-} from './Utilities/constants';
 import { useLocationContext } from './Context/ContextHandler';
 
+const openWeatherApiUrl = process.env.REACT_APP_OPEN_WEATHER_API_URL;
+const openWeatherApiKey = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
+
 function App() {
-  const { updateNavigationData } = useLocationContext();
+  console.log(process.env.REACT_APP_OPEN_WEATHER_API_URL);
+  const { updateLocationData } = useLocationContext();
 
   async function fetchData(lat, long) {
     const response = await axiosInstance.get(
-      `${OPEN_WEATHER_API_URL}?lat=${lat}&lon=${long}&appid=${OPEN_WEATHER_API_KEY}&units=metric`
+      `${openWeatherApiUrl}?lat=${lat}&lon=${long}&appid=${openWeatherApiKey}&units=metric`
     );
     return response.data;
   }
@@ -25,7 +25,7 @@ function App() {
         async (position) => {
           const { latitude, longitude } = position.coords;
           const response = await fetchData(latitude, longitude);
-          updateNavigationData(response);
+          updateLocationData(response);
         },
         (error) => {
           console.error('Error getting location:', error);

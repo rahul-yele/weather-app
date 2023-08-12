@@ -1,6 +1,7 @@
 import { useLocationContext } from '../../Context/ContextHandler';
-import { OPEN_WEATHER_ICON_URL } from '../../Utilities/constants';
 import styles from './dailyForecast.module.css';
+
+const weatherIconUrl = process.env.REACT_APP_OPEN_WEATHER_ICON_URL;
 
 function DailyForecast() {
   const { locationData } = useLocationContext();
@@ -16,7 +17,7 @@ function DailyForecast() {
       </div>
       <img
         alt={`{locationData?.weather[0]?.description}`}
-        src={`${OPEN_WEATHER_ICON_URL}${locationData?.weather?.[0]?.icon}.png`}
+        src={`${weatherIconUrl}${locationData?.weather?.[0]?.icon}.png`}
       ></img>
       <div className={styles.temperatureContainer}>
         <div className={styles.temperature}>{locationData?.main?.temp}</div>

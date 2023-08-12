@@ -1,10 +1,13 @@
 import { useLoadScript } from '@react-google-maps/api';
 import React from 'react';
-import { GOOGLE_API_KEY } from '../../Utilities/constants';
 import Map from '../Map';
 
+const googleMapsApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+
 function WeatherMap() {
-  const { isLoaded } = useLoadScript({ googleMapsApiKey: GOOGLE_API_KEY });
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: googleMapsApiKey,
+  });
 
   if (!isLoaded) return <div>Loading ...</div>;
   return (

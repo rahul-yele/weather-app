@@ -1,15 +1,14 @@
 import { GoogleMap, OverlayView } from '@react-google-maps/api';
 import { useLocationContext } from '../../Context/ContextHandler';
 import styles from './map.module.css';
-import {
-  OPEN_WEATHER_API_KEY,
-  OPEN_WEATHER_MAP_URL,
-} from '../../Utilities/constants';
+
+const openWeatherApiKey = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
+const openWeatherMapUrl = process.env.REACT_APP_OPEN_WEATHER_MAP_URL;
 
 function Map() {
   const { locationData } = useLocationContext();
 
-  const getPixelPositionOffset = (width, height) => ({
+  const getPixelPositionOffset = () => ({
     x: -500,
     y: -320,
   });
@@ -31,7 +30,7 @@ function Map() {
         <img
           alt=""
           className={styles.layer}
-          src={`${OPEN_WEATHER_MAP_URL}/temp_new/0/0/0.png?appid=${OPEN_WEATHER_API_KEY}`}
+          src={`${openWeatherMapUrl}/temp_new/0/0/0.png?appid=${openWeatherApiKey}`}
         ></img>
       </OverlayView>
     </GoogleMap>
