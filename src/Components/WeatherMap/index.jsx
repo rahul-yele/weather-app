@@ -5,7 +5,7 @@ import Map from '../Map';
 
 function WeatherMap() {
   const { isLoaded } = useLoadScript({ googleMapsApiKey: GOOGLE_API_KEY });
-  console.log(isLoaded);
+
   if (!isLoaded) return <div>Loading ...</div>;
   return (
     <div>
