@@ -1,0 +1,9 @@
+.mapContainer {
+  width: 100%;
+  height: 95vh;
+}
+
+.layer {
+  width: 200vh;
+  height: 110vh;
+}

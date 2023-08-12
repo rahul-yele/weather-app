@@ -1,0 +1,30 @@
+.cityName {
+  color: white;
+  font-size: 150px;
+  font-family: 'Lucida Sans';
+}
+
+.weatherConditionMain {
+  color: whitesmoke;
+  font-size: 70px;
+  align-items: flex-end;
+}
+
+.weatherConditionDescription {
+  color: antiquewhite;
+  font-size: 30px;
+}
+
+.temperatureContainer {
+  display: flex;
+  align-items: baseline;
+}
+.temperature {
+  color: aliceblue;
+  font-size: 120px;
+}
+
+.degreeSymbol {
+  color: aliceblue;
+  font-size: 30px;
+}
