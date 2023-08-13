@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { OPEN_WEATHER_API_URL } from './constants';
 
-const baseUrl = OPEN_WEATHER_API_URL;
+const baseUrl = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 
 const axiosInstance = axios.create({
   baseURL: baseUrl,
